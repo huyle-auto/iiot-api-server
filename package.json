@@ -1,0 +1,25 @@
+{
+  "name": "api_management",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mssql": "^11.0.1",
+    "openssl-nodejs": "^1.0.5"
+  },
+  "type": "module"
+}

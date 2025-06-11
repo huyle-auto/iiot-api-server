@@ -1,0 +1,1 @@
+// This file is a linker of controllers and models (isolated controller from database logics)
