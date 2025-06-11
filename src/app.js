@@ -17,7 +17,7 @@ const sslOptions = {
 // Middlewares
 app.use(express.json());
 app.use(cors({
-    origin: undefined,
+    origin: 'https://salmon-field-08f48e900.6.azurestaticapps.net',
     credentials: true
 }));
 app.use(cookieParser());
