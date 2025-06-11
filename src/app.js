@@ -17,7 +17,7 @@ const sslOptions = {
 // Middlewares
 app.use(express.json());
 app.use(cors({
-    origin: 'https://blue-water-0e2f1ac00.1.azurestaticapps.net',
+    origin: undefined,
     credentials: true
 }));
 app.use(cookieParser());
