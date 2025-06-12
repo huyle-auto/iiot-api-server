@@ -8,23 +8,17 @@ import { errorHandler } from './middlewares/error.middleware.js';
 const app = express();
 
 // Middlewares
+const allowedOrigin = 'https://salmon-field-08f48e900.6.azurestaticapps.net';
 const corsOptions = {
-    origin: 'https://salmon-field-08f48e900.6.azurestaticapps.net',
-    credentials: true
-}
+    origin: allowedOrigin,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
+app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
-
-// const allowedOrigin = 'https://salmon-field-08f48e900.6.azurestaticapps.net';
-// const corsOptions = {
-//     origin: allowedOrigin,
-//     credentials: true,
-//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-//     allowedHeaders: ['Content-Type', 'Authorization']
-// };
-// app.options('*', cors(corsOptions));
-
 
 // API Routes
 app.use('/api/v1/users', userRoutes);
