@@ -4,7 +4,6 @@ import cookieParser from 'cookie-parser';
 import userRoutes from './routes/user.routes.js';
 import authRoutes from './routes/auth.routes.js';
 import { errorHandler } from './middlewares/error.middleware.js';
-import fs from 'fs';
 
 const app = express();
 
@@ -29,6 +28,5 @@ app.use('/api/v1/auth', authRoutes);
 app.use(errorHandler);
 
 export default {
-    app,
-    sslOptions
+    app
 }
