@@ -12,6 +12,8 @@ const allowedOrigin = 'https://salmon-field-08f48e900.6.azurestaticapps.net';
 const corsOptions = {
     origin: allowedOrigin,
     credentials: true,
+    optionsSuccessStatus: 200,     // For legacy browsers
+    preflightContinue: false       // Let cors() handle the OPTIONS request itself
 };
 
 // Apply to all routes
@@ -19,13 +21,19 @@ app.use(cors(corsOptions));
 
 // Handle preflight explicitly (optional but safest)
 app.use((req, res, next) => {
-  if (req.method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Origin', allowedOrigin);
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    return res.sendStatus(204);
-  }
+  // if (req.method === 'OPTIONS') {
+  //   res.header('Access-Control-Allow-Origin', allowedOrigin);
+  //   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  //   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  //   res.header('Access-Control-Allow-Credentials', 'true');
+  //   console.log('OPTIONS method detected: process is at here');
+  //   return res.sendStatus(204);
+  // }
+  // console.log('Cannot detect OPTIONS method');
+  res.on('finish', () => {
+    console.log(`[${req.method}] ${req.originalUrl}`);
+    console.log('Sent Headers:', res.getHeaders());
+  });
   next();
 });
 
