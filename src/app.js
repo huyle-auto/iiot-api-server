@@ -14,7 +14,7 @@ const allowedOrigin = 'https://salmon-field-08f48e900.6.azurestaticapps.net';
 const corsOptions = {
     origin: allowedOrigin,
     credentials: true,
-    method: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 };
 app.use(cors(corsOptions));
