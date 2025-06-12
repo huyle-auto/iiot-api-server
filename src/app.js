@@ -8,16 +8,17 @@ import { errorHandler } from './middlewares/error.middleware.js';
 const app = express();
 
 // Middlewares
-// const allowedOrigin = 'https://salmon-field-08f48e900.6.azurestaticapps.net';
-// const corsOptions = {
-//     origin: allowedOrigin,
-//     credentials: true,
-//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-//     allowedHeaders: ['Content-Type', 'Authorization']
-// };
+const allowedOrigin = 'https://salmon-field-08f48e900.6.azurestaticapps.net';
+const corsOptions = {
+    origin: allowedOrigin,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    optionsSuccessStatus: 200
+};
 
 // // Apply to all routes
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 // // Handle preflight explicitly (optional but safest)
 // app.use((req, res, next) => {
