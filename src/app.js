@@ -16,10 +16,17 @@ const sslOptions = {
 
 // Middlewares
 app.use(express.json());
-app.use(cors({
-    origin: 'https://salmon-field-08f48e900.6.azurestaticapps.net',
-    credentials: true
-}));
+
+const allowedOrigin = 'https://salmon-field-08f48e900.6.azurestaticapps.net';
+const corsOptions = {
+    origin: allowedOrigin,
+    credentials: true,
+    method: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 app.use(cookieParser());
 
 // API Routes
