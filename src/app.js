@@ -10,13 +10,18 @@ const app = express();
 // Middlewares
 app.use(express.json());
 
-const allowedOrigin = 'https://salmon-field-08f48e900.6.azurestaticapps.net';
+// const allowedOrigin = 'https://salmon-field-08f48e900.6.azurestaticapps.net';
+// const corsOptions = {
+//     origin: allowedOrigin,
+//     credentials: true,
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type', 'Authorization']
+// };
+
 const corsOptions = {
-    origin: allowedOrigin,
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-};
+    origin: 'https://salmon-field-08f48e900.6.azurestaticapps.net',
+    credentials: true
+}
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
