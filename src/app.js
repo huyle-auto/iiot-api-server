@@ -14,10 +14,10 @@ const corsOptions = {
     credentials: true,
 };
 
-// // Apply to all routes
+// Apply to all routes
 app.use(cors(corsOptions));
 
-// // Handle preflight explicitly (optional but safest)
+// Handle preflight explicitly (optional but safest)
 app.use((req, res, next) => {
   if (req.method === 'OPTIONS') {
     res.header('Access-Control-Allow-Origin', allowedOrigin);
