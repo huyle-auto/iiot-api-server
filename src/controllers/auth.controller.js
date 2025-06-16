@@ -10,13 +10,13 @@ const login = async (req, res) => {
         .cookie('accessToken', tokens.accessToken, {
             httpOnly: true,
             secure: true,
-            sameSite: 'Strict',
+            sameSite: 'None',
             maxAge: 15 * 60 * 1000 // 15 mins
         })
         .cookie('refreshToken', tokens.refreshToken, {
             httpOnly: true,
             secure: true,
-            sameSite: 'Strict',
+            sameSite: 'None',
             maxAge: 1 * 24 * 60 * 60 * 1000 // 1 days
         })
         .json({ message: 'Login successful' });
