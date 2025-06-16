@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const PORT = process.env.LISTEN_PORT || 3030;
+const PORT = process.env.PORT || 3030;
 
 // Default express HTTP server
 app.listen(PORT, () => console.log(`🚀 API server running on http://localhost:${PORT}`));
